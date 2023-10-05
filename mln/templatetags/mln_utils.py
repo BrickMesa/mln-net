@@ -1,6 +1,7 @@
 """Various utility functions for accessing or formatting data for templates that would be too complex to do in the templates themselves."""
 import re
 from django import template
+from django.conf import settings
 from django.template import loader
 from django.template.base import DebugLexer, Lexer, tag_re, TextNode
 
@@ -221,5 +222,9 @@ def render_to_string_stripped(template, context):
 	DebugLexer.tokenize = odlt
 	return res
 
+
+@register.simple_tag
+def settings_value(name):
+    return getattr(settings, name, "")
 
 TextNode.__init__ = whitespace_fix

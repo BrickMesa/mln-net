@@ -1,5 +1,8 @@
 {% extends "mln/ui/base.html" %}
+
 {% load static %}
+{% load mln_utils %}
+
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'mln/page.css' %}" />
 <title>Login</title>
@@ -17,6 +20,5 @@
 	{{ form.as_p }}
 	<input type="submit" value="Login" />
 </form>
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
-<p><a href="{% url 'sign_up' %}">Sign up</a></p>
+<p><a href="{% settings_value 'NEXUS_DASHBOARD_URL' %}">Lost password?</a></p>
 {% endblock %}
