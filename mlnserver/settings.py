@@ -93,6 +93,11 @@ DATABASES = {
 	}
 }
 
+# Authentication Backend Override
+AUTHENTICATION_BACKENDS = [
+    "mln.auth.DarkflameAuthenticationBackend"
+]
+
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 # Password validation

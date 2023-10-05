@@ -7,7 +7,7 @@ from .models.dynamic import Profile
 from .models.static import StartingStack
 from .services.inventory import add_inv_item
 
-@receiver(post_save, sender=User)
+@receiver(post_save)
 def create_user_profile(sender, instance, created, **kwargs):
 	"""Add a profile for user data, as well as MLN's starting items, when a user is created."""
 	if created:
